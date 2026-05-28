@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Site Design Mood Boards</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #fafafa;
+    --bg-secondary: #f3f1ec;
+    --surface: #ffffff;
+    --border: rgba(0,0,0,0.1);
+    --border-strong: rgba(0,0,0,0.18);
+    --text: #111111;
+    --text-secondary: #555550;
+    --text-tertiary: #999990;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #111111;
+      --bg-secondary: #1a1a1a;
+      --surface: #1e1e1e;
+      --border: rgba(255,255,255,0.1);
+      --border-strong: rgba(255,255,255,0.18);
+      --text: #f0ede6;
+      --text-secondary: #a8a49c;
+      --text-tertiary: #666660;
+    }
+  }
+
+  body {
+    font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 2.5rem 1.5rem 4rem;
+  }
+
+  .page-header {
+    max-width: 760px;
+    margin: 0 auto 2.5rem;
+  }
+
+  .page-title {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    margin-bottom: 10px;
+  }
+
+  .page-headline {
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    color: var(--text);
+    margin-bottom: 10px;
+  }
+
+  .page-sub {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .container {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .tabs {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 1.75rem;
+  }
+
+  .tab {
+    padding: 7px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    border: 0.5px solid var(--border-strong);
+    border-radius: 99px;
+    background: transparent;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.14s;
+    font-family: inherit;
+  }
+
+  .tab:hover {
+    background: var(--bg-secondary);
+    color: var(--text);
+  }
+
+  .tab.active {
+    background: var(--text);
+    color: var(--bg);
+    border-color: var(--text);
+  }
+
+  .board { display: none; }
+  .board.active { display: block; }
+
+  .board-header {
+    display: grid;
+    grid-template-columns: 1fr 220px;
+    gap: 1.5rem;
+    align-items: start;
+    margin-bottom: 1.5rem;
+  }
+
+  @media (max-width: 540px) {
+    .board-header { grid-template-columns: 1fr; }
+  }
+
+  .board-title {
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+
+  .board-subtitle {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    margin-bottom: 12px;
+  }
+
+  .board-tags {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    font-size: 11px;
+    padding: 3px 9px;
+    border-radius: 99px;
+    border: 0.5px solid var(--border);
+    color: var(--text-tertiary);
+  }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    margin-bottom: 7px;
+  }
+
+  .palette-swatch {
+    display: flex;
+    gap: 4px;
+    height: 34px;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 0.5px solid var(--border);
+  }
+
+  .swatch { flex: 1; }
+
+  .palette-label {
+    font-size: 11px;
+    color: var(--text-tertiary);
+    margin-top: 6px;
+    text-align: center;
+  }
+
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  @media (max-width: 580px) {
+    .grid-3, .grid-2 { grid-template-columns: 1fr; }
+  }
+
+  .block {
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1rem 1.1rem;
+    background: var(--surface);
+  }
+
+  .block-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    margin-bottom: 10px;
+  }
+
+  .block-content {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.65;
+  }
+
+  .attr-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    padding: 5px 0;
+    border-bottom: 0.5px solid var(--border);
+    gap: 8px;
+  }
+
+  .attr-row:last-child { border-bottom: none; }
+  .attr-key { color: var(--text-secondary); white-space: nowrap; }
+  .attr-val { color: var(--text); font-weight: 500; text-align: right; }
+
+  .component-row {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+  }
+
+  .chip {
+    font-size: 10px;
+    padding: 3px 9px;
+    border-radius: 99px;
+    white-space: nowrap;
+  }
+
+  /* Mini hero previews */
+  .micro-hero {
+    border-radius: var(--radius-lg);
+    padding: 1.1rem 1.25rem 1rem;
+    margin-bottom: 10px;
+    position: relative;
+    overflow: hidden;
+    border: 0.5px solid var(--border);
+  }
+
+  .micro-nav {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+
+  .micro-nav-logo { font-weight: 600; font-size: 13px; }
+
+  .micro-nav-links {
+    display: flex;
+    gap: 12px;
+    font-size: 11px;
+    opacity: 0.65;
+  }
+
+  .micro-nav-cta { margin-left: auto; font-size: 10px; padding: 4px 10px; }
+
+  .micro-headline { line-height: 1.15; margin-bottom: 8px; }
+
+  .micro-sub {
+    font-size: 11px;
+    line-height: 1.55;
+    opacity: 0.75;
+    max-width: 280px;
+    margin-bottom: 12px;
+  }
+
+  .micro-btns { display: flex; gap: 6px; flex-wrap: wrap; }
+
+  .micro-btn {
+    font-size: 10px;
+    padding: 5px 11px;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: default;
+  }
+
+  .micro-stats {
+    display: flex;
+    gap: 18px;
+    margin-top: 12px;
+    padding-top: 10px;
+  }
+
+  .micro-stat-val { font-size: 15px; font-weight: 700; }
+  .micro-stat-lbl { font-size: 9px; opacity: 0.6; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  hr.divider {
+    border: none;
+    border-top: 0.5px solid var(--border);
+    margin: 1.5rem 0;
+  }
+
+  /* Board A — Prestige Editorial */
+  .hero-a { background: #1C1C1A; color: #F7F5F0; }
+  .hero-a .micro-stats { border-top: 1px solid rgba(247,245,240,0.12); }
+
+  /* Board B — Modern Authority */
+  .hero-b { background: #1C3832; color: #F5F0E8; }
+
+  /* Board C — Noir Persona */
+  .hero-c { background: #111111; color: #ffffff; }
+
+  /* Board D — Clean SaaS */
+  .hero-d { background: #FAFAFA; color: #111111; border-color: #e0ddd6; }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <div class="page-title">Design Direction</div>
+  <h1 class="page-headline">Site Mood Boards</h1>
+  <p class="page-sub">Four distinct directions synthesized from reference screenshots. Each board captures a palette, typographic system, layout signals, and component vocabulary.</p>
+</div>
+
+<div class="container">
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab(0)">A — Prestige Editorial</button>
+    <button class="tab" onclick="switchTab(1)">B — Modern Authority</button>
+    <button class="tab" onclick="switchTab(2)">C — Noir Persona</button>
+    <button class="tab" onclick="switchTab(3)">D — Clean SaaS</button>
+  </div>
+
+  <!-- BOARD A -->
+  <div class="board active" id="board-0">
+    <div class="board-header">
+      <div>
+        <div class="board-title">Prestige Editorial</div>
+        <p class="board-subtitle">Cinematic full-bleed photography against deep charcoal or off-white. Serif headlines carry weight and gravitas. Gold/brass accents as the sole warm note in an otherwise cool palette. White-space is generous — the brand says little, but says it loudly.</p>
+        <div class="board-tags">
+          <span class="tag">Full-bleed hero</span>
+          <span class="tag">Serif display</span>
+          <span class="tag">Gold accent</span>
+          <span class="tag">Dark section bands</span>
+          <span class="tag">Stat callouts</span>
+          <span class="tag">Minimal nav</span>
+        </div>
+      </div>
+      <div>
+        <div class="section-label">Palette</div>
+        <div class="palette-swatch">
+          <div class="swatch" style="background:#1A1A1A;"></div>
+          <div class="swatch" style="background:#2D2D2D;"></div>
+          <div class="swatch" style="background:#F7F5F0;"></div>
+          <div class="swatch" style="background:#B39A5C;"></div>
+          <div class="swatch" style="background:#7A6B3A;"></div>
+          <div class="swatch" style="background:#FFFFFF;"></div>
+        </div>
+        <div class="palette-label">Near-black · Off-white · Antique gold</div>
+      </div>
+    </div>
+
+    <div class="micro-hero hero-a">
+      <div class="micro-nav">
+        <span class="micro-nav-logo" style="font-family:Georgia,serif;">Barrister</span>
+        <div class="micro-nav-links"><span>Who We Are</span><span>Practice Areas</span><span>Case Studies</span></div>
+        <div class="micro-nav-cta" style="border:1px solid #B39A5C;color:#B39A5C;border-radius:3px;">Free Consultation</div>
+      </div>
+      <div class="micro-headline" style="font-family:Georgia,serif;font-size:26px;font-weight:400;max-width:320px;">Legal excellence,<br>unwavering advocacy.</div>
+      <div class="micro-sub">Protecting the rights of individuals, families, and businesses for over 70 years.</div>
+      <div class="micro-btns">
+        <div class="micro-btn" style="background:#F7F5F0;color:#1C1C1A;">Free Consultation</div>
+        <div class="micro-btn" style="border:1px solid rgba(247,245,240,0.35);color:#F7F5F0;">Practice Areas</div>
+      </div>
+      <div class="micro-stats" style="border-top:1px solid rgba(247,245,240,0.12);">
+        <div><div class="micro-stat-val">70+</div><div class="micro-stat-lbl">Years Practice</div></div>
+        <div><div class="micro-stat-val">12k</div><div class="micro-stat-lbl">Cases Resolved</div></div>
+        <div><div class="micro-stat-val">98%</div><div class="micro-stat-lbl">Satisfaction</div></div>
+      </div>
+    </div>
+
+    <div class="grid-3">
+      <div class="block">
+        <div class="block-label">Typography system</div>
+        <div style="font-family:Georgia,serif;font-size:22px;font-weight:400;line-height:1.15;color:var(--text);">Display Serif</div>
+        <div style="font-family:Georgia,serif;font-size:13px;font-style:italic;color:var(--text-secondary);margin-top:5px;">Editorial italic subhead</div>
+        <div style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;margin-top:6px;color:var(--text-tertiary);">LABEL CAPS · SPACED</div>
+      </div>
+      <div class="block">
+        <div class="block-label">Layout signals</div>
+        <div class="attr-row"><span class="attr-key">Hero treatment</span><span class="attr-val">Cinematic photo overlay</span></div>
+        <div class="attr-row"><span class="attr-key">Dark bands</span><span class="attr-val">Stats / testimonials</span></div>
+        <div class="attr-row"><span class="attr-key">Section rhythm</span><span class="attr-val">Alternating light/dark</span></div>
+        <div class="attr-row"><span class="attr-key">CTAs</span><span class="attr-val">Solid + ghost pair</span></div>
+      </div>
+      <div class="block">
+        <div class="block-label">Component vocabulary</div>
+        <div class="component-row">
+          <span class="chip" style="background:#F7F5F0;border:1px solid #B39A5C;color:#7A6B3A;">Gold icon badge</span>
+          <span class="chip" style="background:#1C1C1A;color:#F7F5F0;">Inverse card</span>
+        </div>
+        <div class="component-row">
+          <span class="chip" style="border:0.5px solid var(--border);color:var(--text-secondary);">— Section eyebrow</span>
+        </div>
+        <div class="component-row">
+          <span class="chip" style="border:0.5px solid var(--border);color:var(--text-secondary);">Comparison table</span>
+          <span class="chip" style="border:0.5px solid var(--border);color:var(--text-secondary);">Article card grid</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="block">
+        <div class="block-label">Tone &amp; feeling</div>
+        <p class="block-content">Established, serious, trusted. The kind of brand that doesn't need to shout. Photography anchors emotional weight; type provides intellectual authority. Gold is used sparingly — a single CTA button, an icon tint — never decorative.</p>
+      </div>
+      <div class="block">
+        <div class="block-label">What to borrow</div>
+        <div class="attr-row"><span class="attr-key">Eyebrow lines</span><span class="attr-val">Short rule + ALL CAPS label</span></div>
+        <div class="attr-row"><span class="attr-key">Stat blocks</span><span class="attr-val">Large numerals, dark bg</span></div>
+        <div class="attr-row"><span class="attr-key">Card style</span><span class="attr-val">Light grey fill, no shadow</span></div>
+        <div class="attr-row"><span class="attr-key">Photo treatment</span><span class="attr-val">Cool tone overlay</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOARD B -->
+  <div class="board" id="board-1">
+    <div class="board-header">
+      <div>
+        <div class="board-title">Modern Authority</div>
+        <p class="board-subtitle">Deep forest green or midnight navy as the hero canvas. Warm cream/parchment as secondary surface. Rounded pill CTAs introduce softness that prevents the palette from feeling cold. Mixes editorial serif with clean sans — approachable authority.</p>
+        <div class="board-tags">
+          <span class="tag">Deep green/navy hero</span>
+          <span class="tag">Rounded pill buttons</span>
+          <span class="tag">Warm cream surface</span>
+          <span class="tag">Mixed serif/sans</span>
+          <span class="tag">Floating UI cards</span>
+          <span class="tag">Social proof inline</span>
+        </div>
+      </div>
+      <div>
+        <div class="section-label">Palette</div>
+        <div class="palette-swatch">
+          <div class="swatch" style="background:#1C3832;"></div>
+          <div class="swatch" style="background:#162E2B;"></div>
+          <div class="swatch" style="background:#F5F0E8;"></div>
+          <div class="swatch" style="background:#E8C97A;"></div>
+          <div class="swatch" style="background:#1E3461;"></div>
+          <div class="swatch" style="background:#FFFFFF;"></div>
+        </div>
+        <div class="palette-label">Forest green · Warm cream · Amber</div>
+      </div>
+    </div>
+
+    <div class="micro-hero hero-b">
+      <div class="micro-nav">
+        <span class="micro-nav-logo" style="font-family:Georgia,serif;">Civitas</span>
+        <div class="micro-nav-links"><span>About</span><span>Services</span><span>Team</span><span>Testimonial</span></div>
+        <div class="micro-nav-cta" style="background:#F5F0E8;color:#1C3832;border-radius:99px;padding:4px 12px;">Book consultation →</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 140px;gap:12px;align-items:center;">
+        <div>
+          <div style="font-size:11px;margin-bottom:6px;opacity:0.7;">★★★★★ 5.0 (980 Reviews)</div>
+          <div class="micro-headline" style="font-family:Georgia,serif;font-size:22px;font-weight:400;">Trusted legal expertise,<br>tailored for your needs</div>
+          <div class="micro-sub">Dedicated attorneys providing strategic legal solutions and unwavering representation.</div>
+          <div class="micro-btns">
+            <div class="micro-btn" style="background:#E8C97A;color:#1C3832;border-radius:99px;">Book consultation →</div>
+            <div class="micro-btn" style="color:#F5F0E8;opacity:0.8;">▶ how it works</div>
+          </div>
+        </div>
+        <div style="background:rgba(255,255,255,0.12);border-radius:10px;padding:10px;font-size:10px;color:#F5F0E8;">
+          <div style="font-size:15px;font-weight:700;">150+</div>
+          <div style="opacity:0.7;font-size:9px;margin-top:2px;">Business partners</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-3">
+      <div class="block">
+        <div class="block-label">Typography system</div>
+        <div style="font-family:Georgia,serif;font-size:22px;font-weight:400;line-height:1.15;color:var(--text);">Serif headline</div>
+        <div style="font-size:13px;color:var(--text-secondary);margin-top:5px;">Clean sans body copy</div>
+        <div style="font-size:10px;margin-top:6px;color:var(--text-tertiary);">• Dot eyebrow label  ·  SMALL CAPS</div>
+      </div>
+      <div class="block">
+        <div class="block-label">Layout signals</div>
+        <div class="attr-row"><span class="attr-key">Hero bg</span><span class="attr-val">Solid deep green/navy</span></div>
+        <div class="attr-row"><span class="attr-key">Secondary surface</span><span class="attr-val">Warm parchment/cream</span></div>
+        <div class="attr-row"><span class="attr-key">Content cards</span><span class="attr-val">Navy fill, rounded</span></div>
+        <div class="attr-row"><span class="attr-key">Floating widgets</span><span class="attr-val">Glassmorphism-lite</span></div>
+      </div>
+      <div class="block">
+        <div class="block-label">Component vocabulary</div>
+        <div class="component-row">
+          <span class="chip" style="background:#1C3832;color:#F5F0E8;border-radius:99px;">Pill CTA button</span>
+        </div>
+        <div class="component-row">
+          <span class="chip" style="background:#F5F0E8;color:#1C3832;border:0.5px solid #ccc;">Testimonial cards</span>
+          <span class="chip" style="background:#F5F0E8;color:#1C3832;border:0.5px solid #ccc;">Star rating</span>
+        </div>
+        <div class="component-row">
+          <span class="chip" style="border:0.5px solid var(--border);color:var(--text-secondary);">• Dot section label</span>
+          <span class="chip" style="border:0.5px solid var(--border);color:var(--text-secondary);">Numbered accordion</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="block">
+        <div class="block-label">Tone &amp; feeling</div>
+        <p class="block-content">Professional warmth. The forest green grounds authority while cream surfaces lighten the experience. Pill buttons and floating social-proof chips (avatars, star ratings, partner counts) add modern digital trust signals without sacrificing gravitas.</p>
+      </div>
+      <div class="block">
+        <div class="block-label">What to borrow</div>
+        <div class="attr-row"><span class="attr-key">Floating stat card</span><span class="attr-val">Avatar stack + number</span></div>
+        <div class="attr-row"><span class="attr-key">Testimonials</span><span class="attr-val">Large quote marks, gold tint</span></div>
+        <div class="attr-row"><span class="attr-key">Services layout</span><span class="attr-val">Numbered accordion rows</span></div>
+        <div class="attr-row"><span class="attr-key">Nav CTA</span><span class="attr-val">White pill, dark label</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOARD C -->
+  <div class="board" id="board-2">
+    <div class="board-header">
+      <div>
+        <div class="board-title">Noir Persona</div>
+        <p class="board-subtitle">Near-black canvas that's nearly a void. A single portrait photograph takes the entire stage — person, not iconography. Ultra-bold grotesque type bleeds over the image. One accent color dot. This is personal brand energy: one name, one face, total presence.</p>
+        <div class="board-tags">
+          <span class="tag">All-dark canvas</span>
+          <span class="tag">Portrait-first hero</span>
+          <span class="tag">Massive grotesque</span>
+          <span class="tag">Single accent color</span>
+          <span class="tag">Italic philosophy text</span>
+          <span class="tag">Signature element</span>
+        </div>
+      </div>
+      <div>
+        <div class="section-label">Palette</div>
+        <div class="palette-swatch">
+          <div class="swatch" style="background:#111111;"></div>
+          <div class="swatch" style="background:#1E1E1E;"></div>
+          <div class="swatch" style="background:#2A2A2A;"></div>
+          <div class="swatch" style="background:#64B3A8;"></div>
+          <div class="swatch" style="background:#FFFFFF;"></div>
+          <div class="swatch" style="background:#9A9A9A;"></div>
+        </div>
+        <div class="palette-label">Near-black · White type · Single teal accent</div>
+      </div>
+    </div>
+
+    <div class="micro-hero hero-c" style="display:grid;grid-template-columns:1fr 1fr;gap:0;padding:0;min-height:130px;">
+      <div style="padding:1rem;display:flex;flex-direction:column;justify-content:space-between;">
+        <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:10px;">
+          <span style="font-family:Georgia,serif;font-style:italic;">Tackerman</span>
+          <span style="color:#64B3A8;">● Free Consultation</span>
+        </div>
+        <div style="font-size:10px;color:#9A9A9A;line-height:1.5;margin-bottom:10px;">Dedicated to protecting your rights with personalized legal services.</div>
+        <div style="font-size:10px;color:#666;">+1 057 315 13 23  ·  Call for free consultation</div>
+      </div>
+      <div style="background:#1E1E1E;display:flex;align-items:flex-end;justify-content:flex-start;padding:0.75rem 0.75rem 0.5rem;">
+        <div style="font-size:28px;font-weight:900;line-height:0.92;letter-spacing:-0.02em;color:#fff;">Adam<br>Tackerman</div>
+      </div>
+    </div>
+
+    <div class="grid-3">
+      <div class="block">
+        <div class="block-label">Typography system</div>
+        <div style="font-size:26px;font-weight:900;letter-spacing:-0.03em;line-height:0.92;color:var(--text);">Bold<br>Grotesque</div>
+        <div style="font-family:Georgia,serif;font-size:13px;font-style:italic;color:var(--text-secondary);margin-top:8px;">"Philosophy italic quote"</div>
+        <div style="font-size:10px;color:var(--text-tertiary);margin-top:5px;letter-spacing:0.06em;font-family:monospace;">contact@detail.org</div>
+      </div>
+      <div class="block">
+        <div class="block-label">Layout signals</div>
+        <div class="attr-row"><span class="attr-key">Hero layout</span><span class="attr-val">Portrait + type overlay</span></div>
+        <div class="attr-row"><span class="attr-key">Whitespace</span><span class="attr-val">Extreme — void-like</span></div>
+        <div class="attr-row"><span class="attr-key">Navigation</span><span class="attr-val">Hamburger / minimal</span></div>
+        <div class="attr-row"><span class="attr-key">Content sections</span><span class="attr-val">Full-width typographic</span></div>
+      </div>
+      <div class="block">
+        <div class="block-label">Component vocabulary</div>
+        <div class="component-row">
+          <span class="chip" style="background:#111;color:#64B3A8;border:1px solid #64B3A8;">● Teal live dot</span>
+        </div>
+        <div class="component-row">
+          <span class="chip" style="background:#1E1E1E;color:#fff;">Practice area image-tile grid</span>
+        </div>
+        <div class="component-row">
+          <span class="chip" style="background:#1E1E1E;color:#9A9A9A;font-family:Georgia,serif;font-style:italic;">Signature element</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="block">
+        <div class="block-label">Tone &amp; feeling</div>
+        <p class="block-content">Commanding, singular, unapologetically bold. The design stakes a claim. No stock art — one real face occupies the hero. The philosophy section with large italic serif creates a personal-manifesto moment. High-contrast, low-decoration.</p>
+      </div>
+      <div class="block">
+        <div class="block-label">What to borrow</div>
+        <div class="attr-row"><span class="attr-key">Hero type scale</span><span class="attr-val">90–120px condensed weight</span></div>
+        <div class="attr-row"><span class="attr-key">Practice area tiles</span><span class="attr-val">Image grid + label overlay</span></div>
+        <div class="attr-row"><span class="attr-key">Accent sparingly</span><span class="attr-val">One single color dot/element</span></div>
+        <div class="attr-row"><span class="attr-key">Philosophy section</span><span class="attr-val">Full-width italic serif quote</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOARD D -->
+  <div class="board" id="board-3">
+    <div class="board-header">
+      <div>
+        <div class="board-title">Clean SaaS</div>
+        <p class="board-subtitle">White and near-white surfaces with an ultra-tight typography system. No hero photography — gradients or abstract shapes fill the hero instead. Black rounded CTAs. Data visualization and pull-quotes carry the visual weight. Feels like a B2B tech product.</p>
+        <div class="board-tags">
+          <span class="tag">White/off-white surface</span>
+          <span class="tag">Sans-only type</span>
+          <span class="tag">Abstract hero graphic</span>
+          <span class="tag">Black pill CTA</span>
+          <span class="tag">Dashboard previews</span>
+          <span class="tag">Large pull quotes</span>
+        </div>
+      </div>
+      <div>
+        <div class="section-label">Palette</div>
+        <div class="palette-swatch">
+          <div class="swatch" style="background:#FAFAFA;border:0.5px solid #e0e0e0;"></div>
+          <div class="swatch" style="background:#F0EDE4;"></div>
+          <div class="swatch" style="background:#111111;"></div>
+          <div class="swatch" style="background:#F5C842;"></div>
+          <div class="swatch" style="background:#E8E5DC;"></div>
+          <div class="swatch" style="background:#555555;"></div>
+        </div>
+        <div class="palette-label">Near-white · True black · Pop yellow</div>
+      </div>
+    </div>
+
+    <div class="micro-hero hero-d">
+      <div class="micro-nav">
+        <span class="micro-nav-logo" style="font-weight:700;font-size:11px;letter-spacing:0.01em;color:#111;">■ Vectura</span>
+        <div class="micro-nav-links" style="color:#555;"><span>Product</span><span>Pricing</span><span>Case studies</span></div>
+        <div class="micro-nav-cta" style="background:#111;color:#fff;border-radius:99px;font-size:10px;padding:4px 12px;">Request a demo</div>
+      </div>
+      <div style="text-align:center;padding:0.5rem 0 0.75rem;">
+        <div style="font-size:20px;font-weight:700;letter-spacing:-0.02em;line-height:1.15;max-width:300px;margin:0 auto 6px;color:#111;">Stay fully on top of your<br>business finances</div>
+        <div style="font-size:10px;color:#555;max-width:280px;margin:0 auto 10px;line-height:1.5;">Track expenses, manage budgets, and make smarter decisions — all in one dashboard.</div>
+        <div class="micro-btns" style="justify-content:center;">
+          <div class="micro-btn" style="background:#fff;color:#111;border-radius:99px;border:0.5px solid #ccc;">Request a demo</div>
+          <div class="micro-btn" style="background:#E8E5DC;color:#555;border-radius:99px;">Contact us</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-3">
+      <div class="block">
+        <div class="block-label">Typography system</div>
+        <div style="font-size:22px;font-weight:700;letter-spacing:-0.025em;line-height:1.1;color:var(--text);">Tight grotesque<br>bold headline</div>
+        <div style="font-size:13px;font-weight:400;color:var(--text-secondary);margin-top:6px;line-height:1.5;">Clean regular body. No serif anywhere.</div>
+        <div style="font-size:10px;color:var(--text-tertiary);margin-top:5px;letter-spacing:0.1em;text-transform:uppercase;">LABEL — CAPS SPACED</div>
+      </div>
+      <div class="block">
+        <div class="block-label">Layout signals</div>
+        <div class="attr-row"><span class="attr-key">Hero treatment</span><span class="attr-val">Abstract gradient / no photo</span></div>
+        <div class="attr-row"><span class="attr-key">Pull quote</span><span class="attr-val">40–48px, full-width black</span></div>
+        <div class="attr-row"><span class="attr-key">Social proof</span><span class="attr-val">Metric card + testimonial</span></div>
+        <div class="attr-row"><span class="attr-key">Accordion</span><span class="attr-val">Industries / FAQ fold</span></div>
+      </div>
+      <div class="block">
+        <div class="block-label">Component vocabulary</div>
+        <div class="component-row">
+          <span class="chip" style="background:#111;color:#fff;border-radius:99px;">Black pill CTA</span>
+          <span class="chip" style="background:#F5C842;color:#111;border-radius:99px;">Yellow accent</span>
+        </div>
+        <div class="component-row">
+          <span class="chip" style="background:#E8E5DC;color:#555;border-radius:4px;">Secondary ghost</span>
+        </div>
+        <div class="component-row">
+          <span class="chip" style="border:0.5px solid var(--border);color:var(--text-secondary);">Metric stat cards</span>
+          <span class="chip" style="border:0.5px solid var(--border);color:var(--text-secondary);">+/× accordion</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="block">
+        <div class="block-label">Tone &amp; feeling</div>
+        <p class="block-content">Rational, data-forward, product-confident. The brand positions itself alongside modern B2B SaaS. Typography does all the heavy lifting — no decorative photography. Large pull-quote sections break up scroll with opinion and boldness.</p>
+      </div>
+      <div class="block">
+        <div class="block-label">What to borrow</div>
+        <div class="attr-row"><span class="attr-key">Pull quote section</span><span class="attr-val">Light bg, huge black type</span></div>
+        <div class="attr-row"><span class="attr-key">Testimonial card</span><span class="attr-val">Avatar, title, metric pair</span></div>
+        <div class="attr-row"><span class="attr-key">Industry accordion</span><span class="attr-val">+ toggle, clean dividers</span></div>
+        <div class="attr-row"><span class="attr-key">Logo bar</span><span class="attr-val">Greyscale partner logos</span></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer style="max-width:760px;margin:3rem auto 0;padding:1.5rem 0;border-top:0.5px solid var(--border);text-align:center;">
+  <a href="https://www.treyswartz.com/" style="font-size:12px;color:var(--text-tertiary);text-decoration:none;letter-spacing:0.02em;" onmouseover="this.style.color='var(--text-secondary)'" onmouseout="this.style.color='var(--text-tertiary)'">treyswartz.com</a>
+</footer>
+
+<script>
+  function switchTab(i) {
+    document.querySelectorAll('.tab').forEach(function(t, j) {
+      t.classList.toggle('active', i === j);
+    });
+    document.querySelectorAll('.board').forEach(function(b, j) {
+      b.classList.toggle('active', i === j);
+    });
+  }
+</script>
+
+</body>
+</html>
