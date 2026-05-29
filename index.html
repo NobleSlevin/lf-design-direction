@@ -455,6 +455,61 @@
   .hero-c { background: #111111; color: #ffffff; }
   .hero-d { background: #FAFAFA; color: #111111; border-color: #dedad2; }
 
+  /* ── Faux layout ── */
+  .faux-wrap {
+    border: 0.5px solid var(--border);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    margin-bottom: 12px;
+  }
+
+  .faux-chrome {
+    background: var(--bg-secondary);
+    border-bottom: 0.5px solid var(--border);
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .faux-chrome-dots { display: flex; gap: 5px; }
+  .faux-chrome-dot { width: 10px; height: 10px; border-radius: 50%; }
+
+  .faux-chrome-bar {
+    flex: 1;
+    height: 22px;
+    background: var(--surface);
+    border: 0.5px solid var(--border);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    font-size: 10px;
+    color: var(--text-tertiary);
+  }
+
+  .faux-page { font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif; }
+
+  .fn { display: flex; align-items: center; gap: 16px; padding: 0 2rem; height: 52px; }
+  .fn-logo { font-weight: 600; font-size: 14px; white-space: nowrap; }
+  .fn-links { display: flex; gap: 20px; font-size: 11px; opacity: 0.6; }
+  .fn-cta { margin-left: auto; font-size: 11px; padding: 6px 14px; white-space: nowrap; cursor: default; }
+
+  .fs { padding: 3rem 2rem; }
+  .fs-eyebrow { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 10px; }
+  .fs-h { line-height: 1.15; margin-bottom: 12px; }
+  .fs-p { font-size: 13px; line-height: 1.65; opacity: 0.75; }
+  .fs-grid { display: grid; gap: 12px; margin-top: 1.5rem; }
+  .fs-card { border-radius: 10px; padding: 1.1rem 1.2rem; }
+  .fs-card-icon { width: 32px; height: 32px; border-radius: 8px; margin-bottom: 12px; display: flex; align-items: center; justify-content: center; font-size: 14px; }
+  .fs-card-title { font-size: 13px; font-weight: 600; margin-bottom: 5px; }
+  .fs-card-body { font-size: 11px; line-height: 1.6; opacity: 0.7; }
+  .fs-stat-val { font-size: 28px; font-weight: 700; line-height: 1; }
+  .fs-stat-lbl { font-size: 10px; opacity: 0.55; margin-top: 3px; letter-spacing: 0.04em; text-transform: uppercase; }
+  .fs-quote { font-size: 15px; line-height: 1.6; opacity: 0.85; margin-bottom: 12px; }
+  .fs-attr { font-size: 11px; opacity: 0.5; }
+  .fs-footer { padding: 1.25rem 2rem; font-size: 11px; display: flex; justify-content: space-between; align-items: center; opacity: 0.55; border-top-width: 1px; border-top-style: solid; }
+
   /* Responsive: collapse sidebar on small screens */
   @media (max-width: 700px) {
     .layout { grid-template-columns: 1fr; }
@@ -600,6 +655,123 @@
         </div>
       </div>
 
+      <!-- Faux layout A -->
+      <div class="section-title">Page layout</div>
+      <div class="faux-wrap">
+        <div class="faux-chrome">
+          <div class="faux-chrome-dots">
+            <div class="faux-chrome-dot" style="background:#FF5F57;"></div>
+            <div class="faux-chrome-dot" style="background:#FEBC2E;"></div>
+            <div class="faux-chrome-dot" style="background:#28C840;"></div>
+          </div>
+          <div class="faux-chrome-bar">barrister.com</div>
+        </div>
+        <div class="faux-page" style="background:#F7F5F0;">
+
+          <!-- nav -->
+          <div class="fn" style="background:#F7F5F0; border-bottom:0.5px solid rgba(0,0,0,0.08);">
+            <span class="fn-logo" style="font-family:Georgia,serif;color:#1A1A1A;">Barrister</span>
+            <div class="fn-links" style="color:#1A1A1A;"><span>Who We Are</span><span>Practice Areas</span><span>Case Studies</span><span>News</span></div>
+            <div class="fn-cta" style="border:1px solid #B39A5C;color:#B39A5C;border-radius:3px;">Free Consultation</div>
+          </div>
+
+          <!-- hero -->
+          <div style="background:#1C1C1A;color:#F7F5F0;padding:3.5rem 2rem 2.5rem;">
+            <div style="font-size:10px;letter-spacing:0.12em;text-transform:uppercase;opacity:0.5;margin-bottom:14px;">— Trusted legal advocacy</div>
+            <div style="font-family:Georgia,serif;font-size:42px;font-weight:400;line-height:1.1;max-width:560px;margin-bottom:14px;">Legal excellence,<br>unwavering advocacy.</div>
+            <div style="font-size:13px;opacity:0.7;max-width:400px;line-height:1.65;margin-bottom:20px;">Protecting the rights of individuals, families, and businesses for over 70 years.</div>
+            <div style="display:flex;gap:10px;margin-bottom:2.5rem;">
+              <div style="background:#F7F5F0;color:#1A1A1A;font-size:12px;font-weight:500;padding:8px 18px;cursor:default;">Free Consultation</div>
+              <div style="border:1px solid rgba(247,245,240,0.3);color:#F7F5F0;font-size:12px;padding:8px 18px;cursor:default;">Practice Areas</div>
+            </div>
+            <div style="display:flex;gap:40px;padding-top:1.5rem;border-top:1px solid rgba(247,245,240,0.1);">
+              <div><div style="font-size:22px;font-weight:700;">70+</div><div style="font-size:9px;opacity:0.5;letter-spacing:0.06em;text-transform:uppercase;margin-top:3px;">Years of Practice</div></div>
+              <div><div style="font-size:22px;font-weight:700;">12k</div><div style="font-size:9px;opacity:0.5;letter-spacing:0.06em;text-transform:uppercase;margin-top:3px;">Cases Resolved</div></div>
+              <div><div style="font-size:22px;font-weight:700;">98%</div><div style="font-size:9px;opacity:0.5;letter-spacing:0.06em;text-transform:uppercase;margin-top:3px;">Client Satisfaction</div></div>
+              <div><div style="font-size:22px;font-weight:700;">5</div><div style="font-size:9px;opacity:0.5;letter-spacing:0.06em;text-transform:uppercase;margin-top:3px;">Office Locations</div></div>
+            </div>
+          </div>
+
+          <!-- practice areas -->
+          <div style="padding:3rem 2rem;background:#F7F5F0;">
+            <div style="font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#B39A5C;margin-bottom:6px;">— What We Do</div>
+            <div style="font-family:Georgia,serif;font-size:28px;font-weight:400;color:#1A1A1A;margin-bottom:2rem;">Comprehensive legal services<br>for every need</div>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">
+              <div style="background:#fff;border:0.5px solid rgba(0,0,0,0.08);border-radius:10px;padding:1.25rem;">
+                <div style="background:#F0ECE0;border-radius:8px;width:32px;height:32px;display:flex;align-items:center;justify-content:center;font-size:14px;margin-bottom:12px;">⚖️</div>
+                <div style="font-size:13px;font-weight:600;color:#1A1A1A;margin-bottom:5px;">Criminal Law</div>
+                <div style="font-size:11px;color:#555;line-height:1.6;">Expert representation for all criminal matters in the Magistrates, County, and Supreme Courts.</div>
+              </div>
+              <div style="background:#fff;border:0.5px solid rgba(0,0,0,0.08);border-radius:10px;padding:1.25rem;">
+                <div style="background:#F0ECE0;border-radius:8px;width:32px;height:32px;display:flex;align-items:center;justify-content:center;font-size:14px;margin-bottom:12px;">👨‍👩‍👧</div>
+                <div style="font-size:13px;font-weight:600;color:#1A1A1A;margin-bottom:5px;">Family Law</div>
+                <div style="font-size:11px;color:#555;line-height:1.6;">Navigating divorce, custody disputes, and property settlements with sensitivity and focus.</div>
+              </div>
+              <div style="background:#fff;border:0.5px solid rgba(0,0,0,0.08);border-radius:10px;padding:1.25rem;">
+                <div style="background:#F0ECE0;border-radius:8px;width:32px;height:32px;display:flex;align-items:center;justify-content:center;font-size:14px;margin-bottom:12px;">📋</div>
+                <div style="font-size:13px;font-weight:600;color:#1A1A1A;margin-bottom:5px;">Wills &amp; Estates</div>
+                <div style="font-size:11px;color:#555;line-height:1.6;">Comprehensive wills, powers of attorney, and probate administration for peace of mind.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- dark stats band -->
+          <div style="background:#1A1A1A;color:#F7F5F0;padding:3rem 2rem;">
+            <div style="font-size:10px;letter-spacing:0.12em;text-transform:uppercase;opacity:0.4;margin-bottom:8px;">— Our Results</div>
+            <div style="font-family:Georgia,serif;font-size:26px;font-weight:400;max-width:440px;margin-bottom:2.5rem;line-height:1.2;">70 years of fighting for the people who need it most.</div>
+            <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;">
+              <div style="padding-right:2rem;border-right:1px solid rgba(255,255,255,0.1);">
+                <div style="font-size:9px;opacity:0.45;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px;">Satisfied Clients</div>
+                <div style="font-size:30px;font-weight:300;">1,200+</div>
+              </div>
+              <div style="padding:0 2rem;border-right:1px solid rgba(255,255,255,0.1);">
+                <div style="font-size:9px;opacity:0.45;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px;">Satisfaction Rate</div>
+                <div style="font-size:30px;font-weight:300;">98%</div>
+              </div>
+              <div style="padding:0 2rem;border-right:1px solid rgba(255,255,255,0.1);">
+                <div style="font-size:9px;opacity:0.45;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px;">Compensation Won</div>
+                <div style="font-size:30px;font-weight:300;">$50M+</div>
+              </div>
+              <div style="padding-left:2rem;">
+                <div style="font-size:9px;opacity:0.45;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px;">Offices</div>
+                <div style="font-size:30px;font-weight:300;">5</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- testimonial -->
+          <div style="background:#F7F5F0;padding:3rem 2rem;">
+            <div style="font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#B39A5C;margin-bottom:20px;">— Client Stories</div>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
+              <div style="background:#fff;border:0.5px solid rgba(0,0,0,0.07);border-radius:10px;padding:1.25rem;">
+                <div style="font-size:20px;color:#B39A5C;margin-bottom:8px;font-family:Georgia,serif;">"</div>
+                <div style="font-size:12px;color:#333;line-height:1.7;margin-bottom:14px;">Exceptional service. The team guided me every step of the way with unwavering confidence and care.</div>
+                <div style="font-size:11px;font-weight:600;color:#1A1A1A;">Sophia Reynolds</div>
+                <div style="font-size:10px;color:#B39A5C;margin-top:2px;">★★★★★</div>
+              </div>
+              <div style="background:#fff;border:0.5px solid rgba(0,0,0,0.07);border-radius:10px;padding:1.25rem;">
+                <div style="font-size:20px;color:#B39A5C;margin-bottom:8px;font-family:Georgia,serif;">"</div>
+                <div style="font-size:12px;color:#333;line-height:1.7;margin-bottom:14px;">I felt completely reassured from the first call. Their dedication and knowledge were truly outstanding.</div>
+                <div style="font-size:11px;font-weight:600;color:#1A1A1A;">Daniel Foster</div>
+                <div style="font-size:10px;color:#B39A5C;margin-top:2px;">★★★★★</div>
+              </div>
+              <div style="background:#fff;border:0.5px solid rgba(0,0,0,0.07);border-radius:10px;padding:1.25rem;">
+                <div style="font-size:20px;color:#B39A5C;margin-bottom:8px;font-family:Georgia,serif;">"</div>
+                <div style="font-size:12px;color:#333;line-height:1.7;margin-bottom:14px;">Their dedication and knowledge were outstanding. I felt supported and confident throughout the process.</div>
+                <div style="font-size:11px;font-weight:600;color:#1A1A1A;">James Carter</div>
+                <div style="font-size:10px;color:#B39A5C;margin-top:2px;">★★★★★</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="fs-footer" style="background:#1A1A1A;color:#F7F5F0;border-top-color:rgba(255,255,255,0.08);">
+            <span style="font-family:Georgia,serif;font-style:italic;">Barrister</span>
+            <span>© 2026 · All rights reserved</span>
+            <span>Privacy · Terms</span>
+          </div>
+        </div>
+      </div>
+
       <!-- Type -->
       <div class="section-title">Typography system</div>
       <div class="type-specimen">
@@ -729,6 +901,144 @@
         </div>
       </div>
 
+      <!-- Faux layout B -->
+      <div class="section-title">Page layout</div>
+      <div class="faux-wrap">
+        <div class="faux-chrome">
+          <div class="faux-chrome-dots">
+            <div class="faux-chrome-dot" style="background:#FF5F57;"></div>
+            <div class="faux-chrome-dot" style="background:#FEBC2E;"></div>
+            <div class="faux-chrome-dot" style="background:#28C840;"></div>
+          </div>
+          <div class="faux-chrome-bar">civitas-law.com</div>
+        </div>
+        <div class="faux-page" style="background:#F5F0E8;">
+
+          <!-- nav -->
+          <div class="fn" style="background:#1C3832;color:#F5F0E8;">
+            <span class="fn-logo" style="font-family:Georgia,serif;">Civitas</span>
+            <div class="fn-links" style="color:#F5F0E8;"><span>About</span><span>Services</span><span>Team</span><span>Testimonial</span></div>
+            <div class="fn-cta" style="background:#F5F0E8;color:#1C3832;border-radius:99px;padding:6px 16px;">Book consultation →</div>
+          </div>
+
+          <!-- hero -->
+          <div style="background:#1C3832;color:#F5F0E8;padding:3.5rem 2rem 3rem;display:grid;grid-template-columns:1fr 200px;gap:2rem;align-items:center;">
+            <div>
+              <div style="font-size:10px;margin-bottom:12px;opacity:0.6;">★★★★★ 5.0 · 980 Reviews</div>
+              <div style="font-family:Georgia,serif;font-size:38px;font-weight:400;line-height:1.1;margin-bottom:14px;">Trusted legal expertise,<br>tailored for your needs</div>
+              <div style="font-size:13px;opacity:0.7;max-width:400px;line-height:1.65;margin-bottom:20px;">Dedicated attorneys providing strategic legal solutions and unwavering representation for individuals and businesses.</div>
+              <div style="display:flex;gap:10px;">
+                <div style="background:#E8C97A;color:#1C3832;font-size:12px;font-weight:500;padding:9px 20px;border-radius:99px;cursor:default;">Book consultation →</div>
+                <div style="color:#F5F0E8;font-size:12px;opacity:0.75;padding:9px;cursor:default;">▶ how it works</div>
+              </div>
+            </div>
+            <div style="background:rgba(255,255,255,0.12);border-radius:14px;padding:18px;">
+              <div style="font-size:11px;opacity:0.6;margin-bottom:10px;">👤👤👤👤</div>
+              <div style="font-size:26px;font-weight:700;">150+</div>
+              <div style="font-size:9px;opacity:0.6;margin-top:4px;letter-spacing:0.05em;text-transform:uppercase;">Business Partners</div>
+            </div>
+          </div>
+
+          <!-- about strip -->
+          <div style="background:#F5F0E8;padding:3rem 2rem;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;">
+            <div>
+              <div style="font-size:10px;color:#8B7355;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px;">• About Us</div>
+              <div style="font-family:Georgia,serif;font-size:26px;font-weight:400;color:#1A1A1A;line-height:1.2;margin-bottom:14px;">Our commitment is to provide innovative and effective legal solutions</div>
+              <div style="font-size:13px;color:#555;line-height:1.65;">Carefully tailored to meet the unique needs of each client, with dedicated counsel across every practice area.</div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+              <div style="background:#1C3832;color:#F5F0E8;border-radius:12px;padding:1.1rem;">
+                <div style="font-size:22px;font-weight:700;">12+</div>
+                <div style="font-size:10px;opacity:0.6;margin-top:4px;text-transform:uppercase;letter-spacing:0.04em;">Practice Areas</div>
+              </div>
+              <div style="background:#1C3832;color:#F5F0E8;border-radius:12px;padding:1.1rem;">
+                <div style="font-size:22px;font-weight:700;">30min</div>
+                <div style="font-size:10px;opacity:0.6;margin-top:4px;text-transform:uppercase;letter-spacing:0.04em;">Free Consult</div>
+              </div>
+              <div style="background:#E8C97A;color:#1C3832;border-radius:12px;padding:1.1rem;">
+                <div style="font-size:22px;font-weight:700;">98%</div>
+                <div style="font-size:10px;opacity:0.7;margin-top:4px;text-transform:uppercase;letter-spacing:0.04em;">Success Rate</div>
+              </div>
+              <div style="background:#1C3832;color:#F5F0E8;border-radius:12px;padding:1.1rem;">
+                <div style="font-size:22px;font-weight:700;">48hr</div>
+                <div style="font-size:10px;opacity:0.6;margin-top:4px;text-transform:uppercase;letter-spacing:0.04em;">Response Time</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- services accordion -->
+          <div style="background:#fff;padding:3rem 2rem;">
+            <div style="font-size:10px;color:#8B7355;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px;">• Services</div>
+            <div style="font-family:Georgia,serif;font-size:26px;font-weight:400;color:#1A1A1A;margin-bottom:1.5rem;">Legal solutions tailored<br>to your needs</div>
+            <div style="border-top:0.5px solid rgba(0,0,0,0.08);">
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:1rem 0;border-bottom:0.5px solid rgba(0,0,0,0.08);">
+                <div style="display:flex;gap:16px;align-items:center;"><span style="font-size:12px;color:#1C3832;font-weight:600;">1/</span><span style="font-size:14px;font-weight:500;color:#1A1A1A;">Corporate &amp; Business Law</span></div>
+                <span style="color:#1C3832;font-size:16px;">↗</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:1rem 0;border-bottom:0.5px solid rgba(0,0,0,0.08);background:#F5F0E8;margin:0 -2rem;padding-left:2rem;padding-right:2rem;">
+                <div style="display:flex;gap:16px;align-items:center;"><span style="font-size:12px;color:#1C3832;font-weight:600;">2/</span><span style="font-size:14px;font-weight:500;color:#1A1A1A;">Family Law &amp; Mediation</span></div>
+                <span style="color:#1C3832;font-size:16px;">↗</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:1rem 0;border-bottom:0.5px solid rgba(0,0,0,0.08);">
+                <div style="display:flex;gap:16px;align-items:center;"><span style="font-size:12px;color:#1C3832;font-weight:600;">3/</span><span style="font-size:14px;font-weight:500;color:#1A1A1A;">Criminal Defense</span></div>
+                <span style="color:#1C3832;font-size:16px;">↗</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;padding:1rem 0;">
+                <div style="display:flex;gap:16px;align-items:center;"><span style="font-size:12px;color:#1C3832;font-weight:600;">4/</span><span style="font-size:14px;font-weight:500;color:#1A1A1A;">Wills, Estates &amp; Probate</span></div>
+                <span style="color:#1C3832;font-size:16px;">↗</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- testimonials -->
+          <div style="background:#F5F0E8;padding:3rem 2rem;">
+            <div style="font-size:10px;color:#8B7355;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">• Testimonial</div>
+            <div style="font-family:Georgia,serif;font-size:24px;font-weight:400;color:#1A1A1A;margin-bottom:1.5rem;">Our clients trust us to deliver<br>reliable and effective solutions</div>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;">
+              <div style="background:#fff;border-radius:12px;padding:1.25rem;">
+                <div style="font-size:22px;color:#E8C97A;margin-bottom:8px;font-family:Georgia,serif;">"</div>
+                <div style="font-size:12px;color:#444;line-height:1.7;margin-bottom:14px;">Exceptional service from start to finish. The team guided me every step with confidence.</div>
+                <div style="display:flex;align-items:center;gap:8px;">
+                  <div style="width:28px;height:28px;border-radius:50%;background:#1C3832;"></div>
+                  <div>
+                    <div style="font-size:11px;font-weight:600;color:#1A1A1A;">Sophia Reynolds</div>
+                    <div style="font-size:10px;color:#E8C97A;">★★★★★</div>
+                  </div>
+                </div>
+              </div>
+              <div style="background:#fff;border-radius:12px;padding:1.25rem;">
+                <div style="font-size:22px;color:#E8C97A;margin-bottom:8px;font-family:Georgia,serif;">"</div>
+                <div style="font-size:12px;color:#444;line-height:1.7;margin-bottom:14px;">From the first call, I felt completely reassured and supported throughout the whole process.</div>
+                <div style="display:flex;align-items:center;gap:8px;">
+                  <div style="width:28px;height:28px;border-radius:50%;background:#2D5A4A;"></div>
+                  <div>
+                    <div style="font-size:11px;font-weight:600;color:#1A1A1A;">Daniel Foster</div>
+                    <div style="font-size:10px;color:#E8C97A;">★★★★★</div>
+                  </div>
+                </div>
+              </div>
+              <div style="background:#fff;border-radius:12px;padding:1.25rem;">
+                <div style="font-size:22px;color:#E8C97A;margin-bottom:8px;font-family:Georgia,serif;">"</div>
+                <div style="font-size:12px;color:#444;line-height:1.7;margin-bottom:14px;">Their dedication was outstanding. I felt supported and confident from start to finish.</div>
+                <div style="display:flex;align-items:center;gap:8px;">
+                  <div style="width:28px;height:28px;border-radius:50%;background:#1E3461;"></div>
+                  <div>
+                    <div style="font-size:11px;font-weight:600;color:#1A1A1A;">James Carter</div>
+                    <div style="font-size:10px;color:#E8C97A;">★★★★★</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="fs-footer" style="background:#1C3832;color:#F5F0E8;border-top-color:rgba(245,240,232,0.1);">
+            <span style="font-family:Georgia,serif;font-style:italic;">Civitas</span>
+            <span>© 2026 · All rights reserved</span>
+            <span>Privacy · Terms</span>
+          </div>
+        </div>
+      </div>
+
       <div class="section-title">Typography system</div>
       <div class="type-specimen">
         <div class="type-specimen-col">
@@ -847,6 +1157,88 @@
         </div>
         <div style="background:#1A1A1A;display:flex;align-items:flex-end;justify-content:flex-start;padding:1rem 1.25rem 0.75rem;overflow:hidden;">
           <div style="font-size:52px;font-weight:900;line-height:0.88;letter-spacing:-0.03em;color:#fff;">Adam<br>Tackerman</div>
+        </div>
+      </div>
+
+      <!-- Faux layout C -->
+      <div class="section-title">Page layout</div>
+      <div class="faux-wrap">
+        <div class="faux-chrome">
+          <div class="faux-chrome-dots">
+            <div class="faux-chrome-dot" style="background:#FF5F57;"></div>
+            <div class="faux-chrome-dot" style="background:#FEBC2E;"></div>
+            <div class="faux-chrome-dot" style="background:#28C840;"></div>
+          </div>
+          <div class="faux-chrome-bar">tackerman.org</div>
+        </div>
+        <div class="faux-page" style="background:#111;">
+
+          <!-- nav -->
+          <div class="fn" style="background:#111;color:#fff;border-bottom:0.5px solid #1e1e1e;">
+            <span class="fn-logo" style="font-family:Georgia,serif;font-style:italic;font-size:15px;color:#fff;">Tackerman</span>
+            <div style="margin-left:auto;display:flex;align-items:center;gap:20px;">
+              <span style="font-size:11px;color:#64B3A8;">● Free Consultation</span>
+              <span style="font-size:18px;color:#555;cursor:default;">≡</span>
+            </div>
+          </div>
+
+          <!-- hero: split portrait + name -->
+          <div style="display:grid;grid-template-columns:1fr 1fr;min-height:280px;">
+            <div style="padding:2.5rem 2rem;display:flex;flex-direction:column;justify-content:space-between;">
+              <div style="font-size:12px;color:#555;line-height:1.7;max-width:260px;">I'm Adam Tackerman. My team and I are dedicated to protecting your rights with personalized, professional legal services.</div>
+              <div>
+                <div style="font-size:11px;color:#64B3A8;margin-bottom:6px;letter-spacing:0.04em;">● SCHEDULE A CALL</div>
+                <div style="font-family:monospace;font-size:11px;color:#555;">+1 057 315 13 23</div>
+                <div style="font-family:monospace;font-size:11px;color:#555;margin-top:2px;">info@tackerman.org</div>
+              </div>
+            </div>
+            <div style="background:#1A1A1A;display:flex;align-items:flex-end;padding:1rem 1.5rem 0;">
+              <div style="font-size:64px;font-weight:900;line-height:0.85;letter-spacing:-0.03em;color:#fff;">Adam<br>Tackerman</div>
+            </div>
+          </div>
+
+          <!-- philosophy -->
+          <div style="background:#161616;padding:3.5rem 2rem;border-top:0.5px solid #1e1e1e;border-bottom:0.5px solid #1e1e1e;">
+            <div style="font-size:10px;color:#444;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:16px;font-style:italic;">My philosophy</div>
+            <div style="font-family:Georgia,serif;font-size:24px;font-style:italic;color:#ccc;line-height:1.5;max-width:620px;margin-bottom:20px;">"The heart of my work is rooted in integrity. I strive to build trust with clients, ensuring they feel seen, heard, and defended with strength and dedication."</div>
+            <div style="display:flex;align-items:center;gap:16px;">
+              <div style="width:36px;height:1px;background:#333;"></div>
+              <div style="font-family:Georgia,serif;font-style:italic;font-size:13px;color:#555;">Adam Tackerman</div>
+              <div style="margin-left:auto;font-size:12px;color:#444;text-transform:uppercase;letter-spacing:0.06em;cursor:default;">More About Us →</div>
+            </div>
+          </div>
+
+          <!-- practice area tiles -->
+          <div style="padding:3rem 2rem;background:#111;">
+            <div style="font-size:10px;color:#444;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;font-style:italic;">Practicing area</div>
+            <div style="font-size:22px;font-weight:900;letter-spacing:-0.02em;color:#fff;margin-bottom:1.5rem;">Areas of Practice</div>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;">
+              <div style="background:#1A1A1A;border-radius:8px;padding:1.25rem;position:relative;overflow:hidden;min-height:90px;display:flex;align-items:flex-end;">
+                <span style="font-size:13px;color:#fff;font-weight:500;">Criminal Law</span>
+              </div>
+              <div style="background:#1A1A1A;border-radius:8px;padding:1.25rem;position:relative;overflow:hidden;min-height:90px;display:flex;align-items:flex-end;">
+                <span style="font-size:13px;color:#fff;font-weight:500;">Family Law</span>
+              </div>
+              <div style="background:#1A1A1A;border-radius:8px;padding:1.25rem;position:relative;overflow:hidden;min-height:90px;display:flex;align-items:flex-end;">
+                <span style="font-size:13px;color:#fff;font-weight:500;">Immigration Law</span>
+              </div>
+              <div style="background:#1A1A1A;border-radius:8px;padding:1.25rem;position:relative;overflow:hidden;min-height:90px;display:flex;align-items:flex-end;">
+                <span style="font-size:13px;color:#fff;font-weight:500;">Real Estate Law</span>
+              </div>
+              <div style="background:#242424;border:0.5px solid #64B3A8;border-radius:8px;padding:1.25rem;position:relative;overflow:hidden;min-height:90px;display:flex;align-items:flex-end;">
+                <span style="font-size:13px;color:#64B3A8;font-weight:500;">Personal Injury</span>
+              </div>
+              <div style="background:#1A1A1A;border-radius:8px;padding:1.25rem;position:relative;overflow:hidden;min-height:90px;display:flex;align-items:flex-end;">
+                <span style="font-size:13px;color:#fff;font-weight:500;">Corporate Law</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="fs-footer" style="background:#0d0d0d;color:#444;border-top-color:#1e1e1e;">
+            <span style="font-family:Georgia,serif;font-style:italic;color:#555;">Tackerman</span>
+            <span>© 2026 · All rights reserved</span>
+            <span>+1 057 315 13 23</span>
+          </div>
         </div>
       </div>
 
@@ -973,6 +1365,100 @@
       <div class="block" style="padding:2rem 2.25rem;margin-bottom:12px;">
         <div style="font-size:28px;font-weight:700;letter-spacing:-0.02em;line-height:1.2;color:var(--text);max-width:680px;margin-bottom:1.25rem;">"The law is not stuck in the past. Our practice gives clients real-time clarity, built-in strategy, and representation that truly moves the needle."</div>
         <div style="font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-tertiary);">Sarah Lindqvist — Managing Partner</div>
+      </div>
+
+      <!-- Faux layout D -->
+      <div class="section-title">Page layout</div>
+      <div class="faux-wrap">
+        <div class="faux-chrome">
+          <div class="faux-chrome-dots">
+            <div class="faux-chrome-dot" style="background:#FF5F57;"></div>
+            <div class="faux-chrome-dot" style="background:#FEBC2E;"></div>
+            <div class="faux-chrome-dot" style="background:#28C840;"></div>
+          </div>
+          <div class="faux-chrome-bar">jurida-law.com</div>
+        </div>
+        <div class="faux-page" style="background:#FAFAFA;">
+
+          <!-- nav -->
+          <div class="fn" style="background:#fff;border-bottom:0.5px solid #e8e4dc;color:#111;">
+            <span class="fn-logo" style="font-weight:700;letter-spacing:0.01em;color:#111;">■ Jurida</span>
+            <div class="fn-links" style="color:#555;"><span>Expertise ↓</span><span>Our Team</span><span>Case Studies</span><span>News &amp; Insights</span></div>
+            <div class="fn-cta" style="background:#111;color:#fff;border-radius:99px;">Book a Consultation</div>
+          </div>
+
+          <!-- hero -->
+          <div style="background:#FAFAFA;padding:4rem 2rem 3rem;text-align:center;border-bottom:0.5px solid #e8e4dc;">
+            <div style="display:inline-block;background:#F0EDE4;border:0.5px solid #dedad2;border-radius:99px;font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:5px 14px;color:#555;margin-bottom:18px;">Trusted Legal Guidance</div>
+            <div style="font-size:40px;font-weight:700;letter-spacing:-0.025em;line-height:1.08;color:#111;max-width:520px;margin:0 auto 16px;">Legal expertise with<br>modern solutions</div>
+            <div style="font-size:14px;color:#555;max-width:380px;margin:0 auto 24px;line-height:1.65;">Thoughtful legal guidance for individuals and businesses across a full range of practice areas.</div>
+            <div style="display:flex;gap:10px;justify-content:center;margin-bottom:2.5rem;">
+              <div style="background:#111;color:#fff;font-size:12px;font-weight:500;padding:10px 22px;border-radius:99px;cursor:default;">Book a Consultation</div>
+              <div style="background:#E8E5DC;color:#555;font-size:12px;padding:10px 22px;border-radius:99px;cursor:default;">View practice areas</div>
+            </div>
+            <div style="display:flex;justify-content:center;gap:3rem;padding-top:2rem;border-top:0.5px solid #e8e4dc;">
+              <div><div style="font-size:26px;font-weight:700;color:#111;">2,500+</div><div style="font-size:10px;color:#999;margin-top:3px;letter-spacing:0.05em;text-transform:uppercase;">Clients Served</div></div>
+              <div><div style="font-size:26px;font-weight:700;color:#111;">12+</div><div style="font-size:10px;color:#999;margin-top:3px;letter-spacing:0.05em;text-transform:uppercase;">Practice Areas</div></div>
+              <div><div style="font-size:26px;font-weight:700;color:#111;">30min</div><div style="font-size:10px;color:#999;margin-top:3px;letter-spacing:0.05em;text-transform:uppercase;">Free Consult</div></div>
+              <div><div style="font-size:26px;font-weight:700;color:#111;">98%</div><div style="font-size:10px;color:#999;margin-top:3px;letter-spacing:0.05em;text-transform:uppercase;">Success Rate</div></div>
+            </div>
+          </div>
+
+          <!-- pull quote -->
+          <div style="background:#F0EDE4;padding:3rem 2rem;border-bottom:0.5px solid #e0ddd5;">
+            <div style="font-size:26px;font-weight:700;letter-spacing:-0.02em;line-height:1.2;color:#111;max-width:640px;margin-bottom:16px;">"The law is not stuck in the past. Our practice gives clients real-time clarity, built-in strategy, and representation that truly moves the needle."</div>
+            <div style="font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#999;">Sarah Lindqvist — Managing Partner</div>
+          </div>
+
+          <!-- practice areas accordion -->
+          <div style="background:#fff;padding:3rem 2rem;border-bottom:0.5px solid #e8e4dc;">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;">
+              <div>
+                <div style="font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#999;margin-bottom:8px;">Practice Areas</div>
+                <div style="font-size:26px;font-weight:700;letter-spacing:-0.02em;color:#111;line-height:1.15;margin-bottom:8px;">Legal solutions<br>tailored to you</div>
+                <div style="font-size:13px;color:#555;line-height:1.6;">Comprehensive representation across a wide range of practice areas.</div>
+              </div>
+              <div style="border-top:0.5px solid #e8e4dc;">
+                <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:0.5px solid #e8e4dc;font-size:13px;font-weight:500;color:#111;"><span>Corporate Law</span><span style="color:#999;font-size:16px;">+</span></div>
+                <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:0.5px solid #e8e4dc;font-size:13px;font-weight:500;color:#111;"><span>Family Law</span><span style="color:#999;font-size:16px;">+</span></div>
+                <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border-bottom:0.5px solid #ccc;font-size:13px;font-weight:600;color:#111;background:#F0EDE4;margin:0 -14px;"><span>Criminal Defense</span><span style="font-size:16px;">×</span></div>
+                <div style="font-size:12px;color:#555;padding:12px 14px 14px;line-height:1.65;border-bottom:0.5px solid #e8e4dc;background:#faf9f6;margin:0 -14px;">Expert representation in the Magistrates, County, and Supreme Courts, ensuring your liberty and reputation are protected at every stage.</div>
+                <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 0;font-size:13px;font-weight:500;color:#111;"><span>Wills &amp; Estates</span><span style="color:#999;font-size:16px;">+</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- testimonial card -->
+          <div style="background:#FAFAFA;padding:3rem 2rem;">
+            <div style="font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#999;margin-bottom:20px;">Client Stories</div>
+            <div style="background:#fff;border:0.5px solid #e8e4dc;border-radius:12px;padding:1.75rem;max-width:100%;">
+              <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+                <div style="width:36px;height:36px;border-radius:50%;background:#E8E5DC;"></div>
+                <div>
+                  <div style="font-size:13px;font-weight:600;color:#111;">Elizabeth Hartman</div>
+                  <div style="font-size:11px;color:#999;">Corporate Law</div>
+                </div>
+                <div style="margin-left:auto;display:flex;gap:20px;">
+                  <div style="text-align:center;padding-right:20px;border-right:0.5px solid #e8e4dc;">
+                    <div style="font-size:20px;font-weight:700;color:#111;">37%</div>
+                    <div style="font-size:9px;color:#999;margin-top:2px;text-transform:uppercase;letter-spacing:0.04em;">Budget clarity</div>
+                  </div>
+                  <div style="text-align:center;">
+                    <div style="font-size:20px;font-weight:700;color:#111;">2×</div>
+                    <div style="font-size:9px;color:#999;margin-top:2px;text-transform:uppercase;letter-spacing:0.04em;">Faster outcomes</div>
+                  </div>
+                </div>
+              </div>
+              <div style="font-size:16px;font-weight:500;color:#111;line-height:1.55;">"Jurida helped us navigate a complex merger with precision and clarity. Their strategic guidance protected our interests at every stage — truly exceptional."</div>
+            </div>
+          </div>
+
+          <div class="fs-footer" style="background:#fff;color:#bbb;border-top-color:#e8e4dc;">
+            <span style="font-weight:700;letter-spacing:0.01em;color:#999;">■ Jurida</span>
+            <span>© 2026 · All rights reserved</span>
+            <span>Privacy · Terms</span>
+          </div>
+        </div>
       </div>
 
       <div class="section-title">Typography system</div>
